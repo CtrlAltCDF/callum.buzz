@@ -1,0 +1,43 @@
+.nav {
+  width: 100%;
+  height: 55px;
+  background-color: $green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+.nav .left {
+  justify-content: flex-start;
+  object-fit: contain;
+}
+
+.nav .right {
+  justify-content: flex-end;
+  background-color: blue;
+}
+
+.nav-logo {
+  text-decoration: none;
+  color: $gold;
+  align-items: center;
+  height: 40px;
+  display: flex;
+}
+
+.nav-bolt {
+  width: 40px;
+  height: 40px;
+  margin-left: 8px;
+  background-color: $gold;
+}
+
+.nav-logo h1 {
+  font-family: "Chakra Petch", sans-serif;
+  margin-left: 8px;
+}
+
+.nav-bolt:hover {
+  animation: rotate-center 1s ease-in-out infinite both;
+}
