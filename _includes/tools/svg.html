@@ -1,0 +1,12 @@
+<div
+  class="{{include.class}}"
+  style="
+  -webkit-mask: url(/assets/svg/{{include.name}}.svg) no-repeat;
+  mask: url(/assets/svg/{{include.name}}.svg) no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;"
+></div>
+
+{%- comment -%} background-image:
+url(/assets/svg/{{include.name}}.svg);background-size:
+contain;background-repeat: no-repeat;" {%- endcomment -%}
