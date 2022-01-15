@@ -1,12 +1,35 @@
-<nav class="nav">
-  <div class="left">
-  <a href="/" class="nav-logo">
-    {% include tools/svg.html name="callum_bolt" class="nav-bolt"%}
-    <h1>callum.buzz</h1>
+<nav>
+  <div class="nav-container container">
+    <a href="/" class="nav-logo">
+      {% include tools/svg.html name="callum_bolt" class="nav-bolt"%}
+      <h1>callum.buzz</h1>
+    </a>
+
+    <div class="nav-links">
+      {% for item in site.data.navigation %} {% if item.value.first %}
+
+      <div class="dropdown" id="{{ item.name | downcase | slugify }}">
+        <a
+          href="javascript:;"
+          onclick="dropdown('{{ item.name | downcase | slugify }}')"
+          >{% include tools/svg.html name="dropdown" class="nav-dropdown-icon"%}
+          {{item.name }}
+        </a>
+        <div class="dropdown-container">
+          <div class="dropdown-content">
+            <p>
+              Hello World!Hello World!Hello World!Hello World!Hello World!Hello
+              World!Hello World!Hello World!Hello World!
+            </p>
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <a href="{{item.value}}"
+        >{% include tools/svg.html name="link" class="nav-link-icon"%}{{
+        item.name }}</a
+      >
+      {% endif %} {% endfor %}
+    </div>
   </div>
-  </a>
-  <div class="right">right</div>
-  <!-- {% for item in site.data.navigation %}
-    <a href="{{item.link}}" {% if page.url == item.link %} class="current" {% endif %}>{{ item.name }}</a>
-    {% endfor %} -->
 </nav>

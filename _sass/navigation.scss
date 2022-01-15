@@ -1,21 +1,13 @@
-.nav {
-  width: 100%;
-  height: 55px;
+nav {
   background-color: $green;
+}
+
+.nav-container {
+  height: 55px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
-}
-
-.nav .left {
-  justify-content: flex-start;
-  object-fit: contain;
-}
-
-.nav .right {
-  justify-content: flex-end;
-  background-color: blue;
 }
 
 .nav-logo {
@@ -29,7 +21,6 @@
 .nav-bolt {
   width: 40px;
   height: 40px;
-  margin-left: 8px;
   background-color: $gold;
 }
 
@@ -41,3 +32,78 @@
 .nav-bolt:hover {
   animation: rotate-center 1s ease-in-out infinite both;
 }
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links a {
+  margin-left: 8px;
+  align-items: center;
+  display: flex;
+  font-family: "Chakra Petch", sans-serif;
+  border: 1px solid $green;
+  border-radius: 3px;
+  font-size: 17px;
+  text-decoration: none;
+  color: $gold;
+  padding: 3px;
+  -webkit-transition: border 0.3s;
+}
+
+.nav-link-icon {
+  margin-right: 2px;
+  width: 15px;
+  height: 15px;
+  background-color: $gold;
+}
+
+.selected-nav-link {
+  border: 1px solid $gold;
+  background-color: $dark-green;
+  -webkit-transition: border 0.2s;
+  -webkit-transition: background-color 0.2s;
+}
+
+.nav-links a:hover {
+  @extend .selected-nav-link;
+}
+
+.nav-links a.active {
+  @extend .selected-nav-link;
+}
+
+.nav-dropdown-icon {
+  margin-right: 3px;
+  width: 8px;
+  height: 8px;
+  background-color: $gold;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+.dropdown-container {
+  margin-top: 30px;
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.dropdown-content {
+  margin-top: 3px;
+  min-width: 160px;
+  background-color: $dark-green;
+  border: 1px solid $gold;
+  border-radius: 3px;
+}
+
+.dropdown-active {
+  display: block;
+}
+
+// .dropdown:active .dropdown-content {
+// }

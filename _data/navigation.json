@@ -1,11 +1,40 @@
 [
-{
-    "name": "Home", "link": "/",
-},
-{
-    "name": "About", "link": "/about.html"
-},
-{
-    "name": "Blog", "link": "/blog.html"
-}
+  {
+    "name": "Home",
+    "value": "/"
+  },
+  {
+    "name": "About",
+    "value": "/about"
+  },
+  {
+    "name": "Blog",
+    "value": "/blog"
+  },
+  {
+    "name": "Work Expierence",
+    "value": [
+      {
+        "name": "Home",
+        "value": "/"
+      },
+      {
+        "name": "About",
+        "value": "/about.html"
+      }
+    ]
+  },
+  {
+    "name": "Champions",
+    "value": [
+      {
+        "name": "Home",
+        "value": "/"
+      },
+      {
+        "name": "About",
+        "value": "/about.html"
+      }
+    ]
+  }
 ]

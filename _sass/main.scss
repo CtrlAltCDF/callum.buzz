@@ -2,11 +2,14 @@
 $green: #38785d;
 $dark-green: #1f4334;
 $gold: #fadb52;
+$dark-gold: #6d632c;
 $dark: black;
+$text-color: white;
 
 // imports
 @import "animations";
 @import "navigation";
+@import "tools";
 
 // html / body
 body,
@@ -14,5 +17,5 @@ html {
   padding: 0;
   margin: 0;
   background-color: $dark-green;
-  color: white;
+  color: $text-color;
 }
