@@ -1,26 +1,27 @@
 <nav>
   <div class="nav-container container">
     <a href="/" class="nav-logo">
-      {% include tools/svg.html name="callum_bolt" class="nav-bolt"%}
+      {% include tools/svg.html name="callum_bolt_fill" class="nav-bolt"%}
       <h1>callum.buzz</h1>
     </a>
 
     <div class="nav-links">
       {% for item in site.data.navigation %} {% if item.value.first %}
 
-      <div class="dropdown" id="{{ item.name | downcase | slugify }}">
+      <div class="dropdown">
         <a
           href="javascript:;"
+          id="dropdown-link_{{ item.name | downcase | slugify }}"
           onclick="dropdown('{{ item.name | downcase | slugify }}')"
           >{% include tools/svg.html name="dropdown" class="nav-dropdown-icon"%}
           {{item.name }}
         </a>
         <div class="dropdown-container">
-          <div class="dropdown-content">
-            <p>
-              Hello World!Hello World!Hello World!Hello World!Hello World!Hello
-              World!Hello World!Hello World!Hello World!
-            </p>
+          <div
+            class="dropdown-content"
+            id="dropdown_{{ item.name | downcase | slugify }}"
+          >
+            <p>Hello World!</p>
           </div>
         </div>
       </div>
@@ -30,6 +31,10 @@
         item.name }}</a
       >
       {% endif %} {% endfor %}
+      <!-- <a href="javascript:;"
+        >{% include tools/svg.html name="search" class="nav-link-icon
+        search"%}</a
+      > -->
     </div>
   </div>
 </nav>

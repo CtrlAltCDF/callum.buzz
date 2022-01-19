@@ -1,11 +1,10 @@
 function removeDropdown() {
   if (rootState.currentOpenDropDown) {
-    document
-      .querySelector(`#${rootState.currentOpenDropDown} .dropdown-container`)
-      .classList.remove("dropdown-active");
-    document
-      .querySelector(`#${rootState.currentOpenDropDown} a`)
-      .classList.remove("active");
+    const element = rootState.currentOpenDropDown;
+    const dropdown = document.getElementById(`dropdown_${element}`);
+    const dropdownLink = document.getElementById(`dropdown-link_${element}`);
+    dropdown.classList.remove("dropdown-active");
+    dropdownLink.classList.remove("active");
   }
 }
 
@@ -13,10 +12,11 @@ function dropdown(element) {
   removeDropdown();
 
   if (element !== rootState.currentOpenDropDown) {
-    document.querySelector(`#${element} a`).classList.add("active");
-    document
-      .querySelector(`#${element} .dropdown-container`)
-      .classList.add("dropdown-active");
+    const dropdown = document.getElementById(`dropdown_${element}`);
+    const dropdownLink = document.getElementById(`dropdown-link_${element}`);
+
+    dropdownLink.classList.add("active");
+    dropdown.classList.add("dropdown-active");
     rootState.currentOpenDropDown = element;
   } else {
     rootState.currentOpenDropDown = false;
@@ -24,25 +24,20 @@ function dropdown(element) {
 }
 
 rootState.onAnyClick.push(async (event) => {
-  const inDropdown = event.path.some((e) => {
-    if (e.classList) {
-      if (e.classList.contains("dropdown-active")) {
-        return true;
-      }
+  const seekable = [...event.target.parentNode.children];
+  const inDropdown = seekable.some((e) => {
+    if (e.closest(`#dropdown_${rootState.currentOpenDropDown}`)) {
+      return true;
     }
-    return false;
   });
 
-  const onNavLink = event.path.some((e) => {
-    if (e.classList) {
-      if (e.classList.contains("nav-links")) {
-        return true;
-      }
+  const inNavLink = seekable.some((e) => {
+    if (e.closest(".active")) {
+      return true;
     }
-    return false;
   });
 
-  if (!onNavLink && !inDropdown) {
+  if (!inNavLink && !inDropdown && rootState.currentOpenDropDown) {
     removeDropdown();
     rootState.currentOpenDropDown = false;
   }
